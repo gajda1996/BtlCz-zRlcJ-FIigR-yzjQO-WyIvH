@@ -9,6 +9,7 @@
 	include "initdb.php";
 	include "login.php";
 	include "edit.php";
+	include "functions.php";
 	
 	$query_file = 'x.txt';
     $cislo=0;
