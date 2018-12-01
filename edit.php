@@ -260,7 +260,7 @@
 		$adr_ulice = $_POST["adr_ulice"];
 		$adr_cislo_domu = $_POST["adr_cislo_domu"];
 		$PSC = $_POST["PSC"];
-		$sql = "INSERT INTO pivovar (nazev, adr_mesto, adr_ulice, adr_cislo_domu ,PSC) VALUES('$nazev', '$adr_mesto', '$adr_ulice', '$adr_cislo_domu', '$PSC')";   
+		$sql = "INSERT INTO hospoda (nazev, adr_mesto, adr_ulice, adr_cislo_domu ,PSC) VALUES('$nazev', '$adr_mesto', '$adr_ulice', '$adr_cislo_domu', '$PSC')";   
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
