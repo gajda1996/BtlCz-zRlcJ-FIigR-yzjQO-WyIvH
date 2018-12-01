@@ -7,7 +7,6 @@
 			$_SESSION['typ'] = "admin";
 			$_SESSION['login'] = $_POST['login'];
 			$_SESSION['heslo'] = $_POST['heslo'];
-
 		}
 		else
 		{
@@ -17,14 +16,33 @@
 			$retval = mysql_query( $sql, $conn );
 			if(!$retval )
 			{
-				die('Could not enter data: ' . mysql_error());
+				die(mysql_error());
 			}
 			else
 			{
 				$row = mysql_fetch_array($retval, MYSQL_NUM);
 				if (count($row)>1)
 				{
-					$_SESSION['typ'] = "uzivatel";
+					
+					$login = $_POST["login"];
+					$sql = "SELECT * FROM sladek WHERE login = '$login'";
+					$retval = mysql_query( $sql, $conn );
+					if(! $retval ) 
+					{
+						die(mysql_error());
+					}
+					else
+					{
+						$row = mysql_fetch_array($retval, MYSQL_NUM);
+						if (count($row)>1)
+						{
+							$_SESSION['typ'] = "sladek";
+						}
+						else
+						{
+							$_SESSION['typ'] = "uzivatel";
+						}
+					}
 					$_SESSION['login'] = $_POST['login'];
 					$_SESSION['heslo'] = $_POST['heslo'];
 				}
