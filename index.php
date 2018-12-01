@@ -3,13 +3,24 @@
 	if (!isset($_SESSION))
 	{
 		session_start();
-		
 	}
-	
+
+	$timelimit=10;
+	if (isset($_SESSION['timeout'])) 
+	{
+		$sessionTTL = time() - $_SESSION['timeout'];
+		if ($sessionTTL > $timelimit) 
+		{
+			session_destroy();
+			echo "logout";
+		}
+    }	
+	$_SESSION['timeout'] = time();
+
+
 	include "initdb.php";
 	include "login.php";
 	include "edit.php";
-	include "functions.php";
 	
 	$query_file = 'x.txt';
     $cislo=0;
@@ -27,6 +38,4 @@
 		}
     }
 	fclose($fp);
-	session_unset();
-	session_destroy();
 ?>
