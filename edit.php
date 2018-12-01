@@ -349,11 +349,72 @@
         }
     }
 
+	if(isset($_POST['getuzivatel']))
+	{
+		$login = $_POST["login"];
+		$heslo = $_POST["heslo"];
+		$sql = "SELECT * FROM uzivatel WHERE login = '$login' AND heslo = '$heslo'";
+		$retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			die(mysql_error());
+        }
+		else
+		{
+			$row = mysql_fetch_array($retval, MYSQL_NUM);
+			$_SESSION['uzivatel'] = $row;
+		}
+    }
+
 	if(isset($_POST['deleteuzivatel']))
 	{
 		$login = $_POST["login"];
 		$heslo = $_POST["heslo"];
 		$sql = "DELETE FROM uzivatel WHERE login = '$login' AND heslo = '$heslo'";  
+        $retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			die(mysql_error());
+        }
+    }
+
+	if(isset($_POST['addsladek']))
+	{
+		$login = $_POST["login"];
+		$jmeno = $_POST["jmeno"];
+		$prijmeni = $_POST["prijmeni"];
+		$adr_mesto = $_POST["adr_mesto"];
+		$adr_ulice = $_POST["adr_ulice"];
+		$adr_cislo_domu = $_POST["adr_cislo_domu"];
+		$PSC = $_POST["PSC"];
+		$sql = "INSERT INTO sladek (login, jmeno, prijmenim adr_mesto, adr_ulice, adr_cislo_domu ,PSC) VALUES('$login','$jmeno','$prijmeni', '$adr_mesto', '$adr_ulice', '$adr_cislo_domu', '$PSC')";   
+        $retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			die(mysql_error());
+        }
+    }
+
+	if(isset($_POST['getsladek']))
+	{
+		$login = $_POST["login"];
+		$sql = "SELECT * FROM sladek WHERE login = '$login'";
+		$retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			die(mysql_error());
+        }
+		else
+		{
+			$row = mysql_fetch_array($retval, MYSQL_NUM);
+			$_SESSION['sladek'] = $row;
+		}
+    }
+
+	if(isset($_POST['deletesladek']))
+	{
+		$login = $_POST["login"];
+		$sql = "DELETE FROM sladek WHERE login = '$login'";  
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
