@@ -11,6 +11,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -22,6 +23,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -38,6 +40,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -51,6 +54,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -62,6 +66,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -78,6 +83,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -93,6 +99,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -104,6 +111,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -120,6 +128,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -132,6 +141,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -143,6 +153,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -159,6 +170,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -173,6 +185,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -185,6 +198,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -202,6 +216,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -218,6 +233,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -231,6 +247,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -249,6 +266,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -264,6 +282,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -275,6 +294,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -291,6 +311,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -306,6 +327,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -317,6 +339,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -333,6 +356,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -345,6 +369,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -357,6 +382,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -374,6 +400,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -391,6 +418,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }
@@ -402,6 +430,7 @@
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
 		else
@@ -418,6 +447,7 @@
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
+			$_SESSION["error"]=1;
 			die(mysql_error());
         }
     }

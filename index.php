@@ -5,7 +5,7 @@
 		session_start();
 	}
 
-	$timelimit=10;
+	$timelimit=600;
 	if (isset($_SESSION['timeout'])) 
 	{
 		$sessionTTL = time() - $_SESSION['timeout'];

@@ -16,6 +16,7 @@
 			$retval = mysql_query( $sql, $conn );
 			if(!$retval )
 			{
+				$_SESSION["error"]=1;
 				die(mysql_error());
 			}
 			else
@@ -23,12 +24,11 @@
 				$row = mysql_fetch_array($retval, MYSQL_NUM);
 				if (count($row)>1)
 				{
-					
-					$login = $_POST["login"];
 					$sql = "SELECT * FROM sladek WHERE login = '$login'";
 					$retval = mysql_query( $sql, $conn );
 					if(! $retval ) 
 					{
+						$_SESSION["error"]=1;
 						die(mysql_error());
 					}
 					else
