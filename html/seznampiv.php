@@ -44,15 +44,10 @@
 	include '../edit.php';
 	foreach($_SESSION['allpivo'] as $row)
 	{
-		if (($index%2)==1)
-		{
-			
 		?>
-			<li class="nav-item">
-				<a class="nav-link" href="pivo.php?nazev=<?php echo $row[0]; ?>"><?php echo $row[0]; ?></a>
-			</li>
+			<a href="pivo.php?nazev=<?php echo $row[0]; ?>"><?php echo $row[0]; ?></a>
+			<br>
 		<?php
-		}
 		$index=$index+1;
 	}
 	unset($_POST['getallpivo']);
