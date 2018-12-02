@@ -1,5 +1,5 @@
 <?php
-
+	include "initdb.php";
 	if (isset($_POST['login']) && isset($_POST['heslo'])) 
 	{
 		if ($_POST['login'] == "admin" && $_POST['heslo'] == "admin")
@@ -17,7 +17,6 @@
 			if(!$retval )
 			{
 				$_SESSION["error"]=1;
-				die(mysql_error());
 			}
 			else
 			{
@@ -29,7 +28,6 @@
 					if(! $retval ) 
 					{
 						$_SESSION["error"]=1;
-						die(mysql_error());
 					}
 					else
 					{
@@ -52,14 +50,5 @@
 				}
 			}
 		}
-		unset($_POST['login']);
-		unset($_POST['heslo']);
 	}
 ?>
-	<form action="<?php $_PHP_SELF ?>" method="POST">
-	login<br>
-	<input type="text" name="login"><br>
-	heslo<br>
-	<input type="text" name="heslo"><br>
-	<input type="submit" value="prihlasit">
-	</form>
