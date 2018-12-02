@@ -15,7 +15,6 @@ include 'menu.php';
 <?php
 	if (isset($_POST['deletepivo']))
 	{
-		echo $_POST["nazev"];
 		include '../edit.php';
 		unset($_POST['deletepivo']);
 	}
