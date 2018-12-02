@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Pivní databáze</title>
@@ -21,7 +21,7 @@
 
   <!-- Links -->
   <ul class="navbar-nav">
-  	<li class="nav-item">
+		<li class="nav-item">
       <a class="nav-link" href="domu.php">Domů</a>
     </li>
     <li class="nav-item">
@@ -39,23 +39,19 @@
 
 <article>
 <?php
-	$_POST['getallpivo']=1;
-	$index=0;
+	$_POST['getpivo']=1;
+	$_POST["nazev"]=$_GET['nazev'];
 	include '../edit.php';
-	foreach($_SESSION['allpivo'] as $row)
-	{
-		if (($index%2)==1)
-		{
-			
-		?>
-			<li class="nav-item">
-				<a class="nav-link" href="pivo.php?nazev=<?php echo $row[0]; ?>"><?php echo $row[0]; ?></a>
-			</li>
-		<?php
-		}
-		$index=$index+1;
-	}
-	unset($_POST['getallpivo']);
+	include '../functions.php';
+	?>
+	<p>Název <?php echo $_SESSION['pivo'][1]?></p>
+	<p>Stupeň EBC <?php echo $_SESSION['pivo'][2]?></p>
+	<p>Styl kvašení <?php echo $_SESSION['pivo'][3]?></p>
+	<p>Typ piva <?php echo $_SESSION['pivo'][4]?></p>
+	<p>Obsah alkoholu <?php echo $_SESSION['pivo'][5]?></p>
+	<p>Průměrné hodnocení <?php echo skore($_SESSION['pivo'][0],$conn);?></p>
+	<?php
+	unset($_POST['getpivo']);
 ?>
 </article>
 
