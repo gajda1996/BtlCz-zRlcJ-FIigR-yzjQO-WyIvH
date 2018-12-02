@@ -243,8 +243,7 @@
 	{
 		$ID_pivo = $_POST["ID_pivo"];
 		$login = $_POST["login"];
-		$ID_hospoda = $_POST["ID_hospoda"];
-		$sql = "SELECT * FROM hodnoceni WHERE ID_pivo = '$ID_pivo' AND login = '$login' AND ID_hospoda = '$ID_hospoda'";        
+		$sql = "SELECT * FROM hodnoceni WHERE ID_pivo = '$ID_pivo' AND login = '$login'";        
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
