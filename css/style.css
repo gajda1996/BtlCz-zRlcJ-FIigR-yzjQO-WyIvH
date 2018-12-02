@@ -1,0 +1,25 @@
+article{
+	text-align:center;
+}
+
+label{
+	display:inline-block;
+	width:140px;
+	text-align:right;
+}
+.jumbotron{
+
+}
+
+.navbar{
+	margin-top:-32px;
+	justify-content:center;
+}
+
+.nav-link{
+	font-size:25px;
+}
+
+.nav-item{
+	padding-right:5px;
+}
