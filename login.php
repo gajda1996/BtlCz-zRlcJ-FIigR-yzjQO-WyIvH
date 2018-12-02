@@ -55,14 +55,11 @@
 		unset($_POST['login']);
 		unset($_POST['heslo']);
 	}
-	else
-	{
-		?>
-		<form action="<?php $_PHP_SELF ?>" method="POST">
-		<input type="text" name="login"><br>
-		<input type="text" name="heslo"><br>
-		<input type="submit">
-		</form>
-		<?php
-    }
 ?>
+	<form action="<?php $_PHP_SELF ?>" method="POST">
+	login<br>
+	<input type="text" name="login"><br>
+	heslo<br>
+	<input type="text" name="heslo"><br>
+	<input type="submit" value="prihlasit">
+	</form>
