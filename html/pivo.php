@@ -20,6 +20,8 @@ include 'menu.php';
 		$_POST["login"]=$_SESSION['login'];
 		$_POST["ID_hospoda"]=$_SESSION['hodnoceni'][2];
 		include '../edit.php';
+		$url= "Location: pivo.php?nazev=" . $_SESSION['pivo'][1];
+		header($url);
 	}
 	else if (isset($_POST['pridat']))
 	{
@@ -30,6 +32,8 @@ include 'menu.php';
 		$_POST["datum"]=0;
 		$_POST["cas"]=0;
 		include '../edit.php';
+		$url= "Location: pivo.php?nazev=" . $_SESSION['pivo'][1];
+		header($url);
 	}
 	else
 	{
