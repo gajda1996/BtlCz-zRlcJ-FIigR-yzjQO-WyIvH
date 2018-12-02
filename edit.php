@@ -285,6 +285,23 @@
         }
     }
 
+	if(isset($_POST['getallhospoda']))
+	{
+		$sql = "SELECT nazev FROM hospoda ORDER BY nazev";        
+		$retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			$_SESSION["error"]=1;
+        }
+		else
+		{
+			$rows = array();
+			while($row = mysql_fetch_array($retval))
+				$rows[] = $row;
+			$_SESSION['allhospoda'] = $rows;
+		}
+    }
+
 	if(isset($_POST['gethospoda']))
 	{
 		$nazev = $_POST["nazev"];
@@ -325,6 +342,23 @@
 		{
 			$_SESSION["error"]=1;
         }
+    }
+
+	if(isset($_POST['getallpivovar']))
+	{
+		$sql = "SELECT nazev FROM pivovar ORDER BY nazev";        
+		$retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			$_SESSION["error"]=1;
+        }
+		else
+		{
+			$rows = array();
+			while($row = mysql_fetch_array($retval))
+				$rows[] = $row;
+			$_SESSION['allpivovar'] = $rows;
+		}
     }
 
 	if(isset($_POST['getpivovar']))
