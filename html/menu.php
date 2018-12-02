@@ -46,7 +46,7 @@
       <a class="nav-link" href="seznamhospod.php">Seznam hospod</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Nejlepší pijani</a>
+      <a class="nav-link" href="profil.php">Profil</a>
     </li>
 	<li class="nav-item">
       <a class="nav-link" href="domu.php">Přihlášení</a>
