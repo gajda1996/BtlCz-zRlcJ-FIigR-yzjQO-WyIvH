@@ -25,15 +25,22 @@ include 'menu.php';
 	}
 	else if (isset($_POST['pridat']))
 	{
-		$_POST['addhodnoceni']=1;
-		$_POST["ID_pivo"]=$_SESSION['pivo'][0];
-		$_POST["login"]=$_SESSION['login'];
-		$_POST["ID_hospoda"]=1;
-		$_POST["datum"]=0;
-		$_POST["cas"]=0;
-		include '../edit.php';
-		$url= "Location: pivo.php?nazev=" . $_SESSION['pivo'][1];
-		header($url);
+		if (is_numeric($_POST["znamka"]) && ($_POST["znamka"]>=0 && $_POST["znamka"]<=10))
+		{
+			$_POST['addhodnoceni']=1;
+			$_POST["ID_pivo"]=$_SESSION['pivo'][0];
+			$_POST["login"]=$_SESSION['login'];
+			$_POST["ID_hospoda"]=1;
+			$_POST["datum"]=0;
+			$_POST["cas"]=0;
+			include '../edit.php';
+			$url= "Location: pivo.php?nazev=" . $_SESSION['pivo'][1];
+			header($url);
+		}
+		else
+		{
+			echo "Špatný formát dat";
+		}
 	}
 	else
 	{
@@ -52,34 +59,37 @@ include 'menu.php';
 			<p>Průměrné hodnocení: <?php echo skore($_SESSION['pivo'][0],$conn);?></p>
 
 			<?php
-			unset($_POST['getpivo']);
-			$_POST['gethodnoceni']=1;
-			$_POST["ID_pivo"]=$_SESSION['pivo'][0];
-			$_POST["login"]=$_SESSION['login'];
-			include '../edit.php';
-			unset($_POST['gethodnoceni']);
-			if ($_SESSION['hodnoceni'][0]!="")
+			if (isset($_SESSION['timeout']))
 			{
-				?>
-				<p>Vaše hodnocení: <?php echo $_SESSION['hodnoceni'][3]?></p>
-				<form action="pivo.php" method="POST">
-					<input type="submit" name="smazat" value="Smazat hodnocení">
-					</div>
-				</form>
-				<?php
-			}
-			else
-			{
-				?>
-				<br>
-				<form action="pivo.php" method="POST">
-					<label for="name">Znamka 0-10</t></label>
-					<input type="text" name="znamka">
+				unset($_POST['getpivo']);
+				$_POST['gethodnoceni']=1;
+				$_POST["ID_pivo"]=$_SESSION['pivo'][0];
+				$_POST["login"]=$_SESSION['login'];
+				include '../edit.php';
+				unset($_POST['gethodnoceni']);
+				if ($_SESSION['hodnoceni'][0]!="")
+				{
+					?>
+					<p>Vaše hodnocení: <?php echo $_SESSION['hodnoceni'][3]?></p>
+					<form action="pivo.php" method="POST">
+						<input type="submit" name="smazat" value="Smazat hodnocení">
+						</div>
+					</form>
+					<?php
+				}
+				else
+				{
+					?>
 					<br>
-					<input type="submit" name="pridat" value="Přidat hodnocení">
-					</div>
-				</form>
-				<?php
+					<form action="pivo.php" method="POST">
+						<label for="name">Znamka 0-10</t></label>
+						<input type="text" name="znamka">
+						<br>
+						<input type="submit" name="pridat" value="Přidat hodnocení">
+						</div>
+					</form>
+					<?php
+				}
 			}
 		}
 		else
