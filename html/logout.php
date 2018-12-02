@@ -13,8 +13,15 @@ include 'menu.php';
 
 <article>
 <?php
-	session_destroy();
-	echo "Probìhlo odhlášení";
+	if (isset($_SESSION["timeout"]))
+	{
+		session_destroy();
+		echo "Probìhlo odhlášení";
+	}
+	else
+	{
+		echo "Nejste pøihlášení";
+	}
 ?>
 </article>
 

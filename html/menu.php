@@ -23,7 +23,7 @@
 			if ($sessionTTL > $timelimit) 
 			{
 				session_destroy();
-				echo "logout";
+				echo "Proběhlo odhlášení";
 			}
 			echo "Zbývá " . ($timelimit - $sessionTTL) . " s";
 		}
@@ -41,6 +41,9 @@
     </li>
 	<li class="nav-item">
       <a class="nav-link" href="seznampivovaru.php">Seznam pivovarů</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" href="seznamhospod.php">Seznam hospod</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Nejlepší pijani</a>
