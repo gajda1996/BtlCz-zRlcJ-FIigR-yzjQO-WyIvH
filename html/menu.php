@@ -13,6 +13,9 @@
     <li class="nav-item">
       <a class="nav-link" href="seznampiv.php">Seznam piv</a>
     </li>
+	<li class="nav-item">
+      <a class="nav-link" href="seznampivovaru.php">Seznam pivovarů</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Nejlepší pijani</a>
     </li>
