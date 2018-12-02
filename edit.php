@@ -1,5 +1,5 @@
 <?php
-
+	include "initdb.php";
     if(isset($_POST['addpivo']))
 	{
 		$nazev = $_POST["nazev"];
@@ -12,10 +12,26 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
-		
+	
+	if(isset($_POST['getallpivo']))
+	{
+		$sql = "SELECT nazev FROM pivo ORDER BY nazev";        
+		$retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			$_SESSION["error"]=1;
+        }
+		else
+		{
+			$rows = array();
+			while($row = mysql_fetch_array($retval))
+				$rows[] = $row;
+			$_SESSION['allpivo'] = $rows;
+		}
+    }
+
 	if(isset($_POST['getpivo']))
 	{
 		$nazev = $_POST["nazev"];
@@ -24,7 +40,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -41,7 +56,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -55,7 +69,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -67,7 +80,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -84,7 +96,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -100,7 +111,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -112,7 +122,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -129,7 +138,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -142,7 +150,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -154,7 +161,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -171,7 +177,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -186,7 +191,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -199,7 +203,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -217,7 +220,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -234,7 +236,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -248,7 +249,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -267,7 +267,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -283,7 +282,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -295,7 +293,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -312,7 +309,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -328,7 +324,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -340,7 +335,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -357,7 +351,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -370,7 +363,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -383,7 +375,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -401,7 +392,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -419,7 +409,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 
@@ -431,7 +420,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
 		else
 		{
@@ -448,7 +436,6 @@
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
-			die(mysql_error());
         }
     }
 ?>

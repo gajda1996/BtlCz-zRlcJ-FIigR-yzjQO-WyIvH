@@ -32,7 +32,14 @@
 					$i=$i+1;
 				}
 			}
-			return $celkem/$pocet;
+			if ($pocet==0)
+			{
+				return 0;
+			}
+			else
+			{
+				return $celkem/$pocet;
+			}
 		}
 	}
 ?>
