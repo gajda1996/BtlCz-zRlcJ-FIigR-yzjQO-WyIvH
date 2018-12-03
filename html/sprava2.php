@@ -10,7 +10,7 @@ if($_SESSION["pridat_odebrat"] === 'pridat'){
 		$_POST["addslad"] = 1;
 	}
 	elseif($_SESSION['vyber'] === 'chmel'){
-		$_POST["addcheml"] = 1;
+		$_POST["addchmel"] = 1;
 	}
 	elseif($_SESSION['vyber'] === 'kvasnice'){
 		$_POST["addkvasnice"] = 1;

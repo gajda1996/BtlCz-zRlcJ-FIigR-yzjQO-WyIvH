@@ -13,7 +13,7 @@ include 'menu.php';
 
 <article>
 <?php
-
+  include "../initdb.php";
   if(!isset($_POST["editace"])){
 
     echo '<select name="pridat_odebrat" form="upravy">';
@@ -115,8 +115,9 @@ include 'menu.php';
           <label for="skupenstvi">Skupenství</label>
           <input type="text" name="skupenstvi">
           <br>
-          <label for="typ_kvaseni">Typ kvašení</label>
-          <input type="text" name="typ_kvaseni">
+          <label for="typ_kvaseni">Typ kvašení: </label>
+          <input type="radio" name="typ_kvaseni" value="Svrchní">  Svrchní
+          <input type="radio" name="typ_kvaseni" value="Spodní">  Spodní
           <br>
           <input type="submit" value="Přidat">
           </div>
@@ -220,7 +221,6 @@ include 'menu.php';
     elseif($_POST['pridat_odebrat'] === 'odebrat'){
       $_SESSION["pridat_odebrat"] = 'odebrat';
       $_SESSION["vyber"] = $_POST["editace"];
-      include "../initdb.php";
       if($_POST["editace"] === 'pivo'){
         $sql = "SELECT * FROM pivo ORDER BY nazev";
         $retval = mysql_query($sql, $conn);
