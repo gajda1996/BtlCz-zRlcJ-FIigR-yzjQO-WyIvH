@@ -493,7 +493,7 @@
 		$adr_ulice = $_POST["adr_ulice"];
 		$adr_cislo_domu = $_POST["adr_cislo_domu"];
 		$PSC = $_POST["PSC"];
-		$sql = "INSERT INTO sladek (login, jmeno, prijmenim adr_mesto, adr_ulice, adr_cislo_domu ,PSC) VALUES('$login','$jmeno','$prijmeni', '$adr_mesto', '$adr_ulice', '$adr_cislo_domu', '$PSC')";   
+		$sql = "INSERT INTO sladek (login, jmeno, prijmeni, adr_mesto, adr_ulice, adr_cislo_domu ,PSC) VALUES('$login','$jmeno','$prijmeni', '$adr_mesto', '$adr_ulice', '$adr_cislo_domu', '$PSC')";   
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
