@@ -381,6 +381,21 @@
 				$_SESSION['pivovar'] = $row;
 			}
 		}
+		else
+		{
+			$nazev = $_POST["ID_pivovar"];
+			$sql = "SELECT * FROM pivovar WHERE ID_pivovar = '$nazev'";        
+			$retval = mysql_query( $sql, $conn );
+			if(! $retval ) 
+			{
+				$_SESSION["error"]=1;
+			}
+			else
+			{
+				$row = mysql_fetch_array($retval, MYSQL_NUM);
+				$_SESSION['pivovar'] = $row;
+			}
+		}
     }
 
 	if(isset($_POST['deletepivovar']))
@@ -470,6 +485,21 @@
 		{
 			$login = $_POST["login"];
 			$sql = "SELECT * FROM sladek WHERE login = '$login'";
+			$retval = mysql_query( $sql, $conn );
+			if(! $retval ) 
+			{
+				$_SESSION["error"]=1;
+			}
+			else
+			{
+				$row = mysql_fetch_array($retval, MYSQL_NUM);
+				$_SESSION['sladek'] = $row;
+			}
+		}
+		else
+		{
+			$idsladek = $_POST["ID_sladka"];
+			$sql = "SELECT * FROM sladek WHERE ID_sladka = '$idsladek'";
 			$retval = mysql_query( $sql, $conn );
 			if(! $retval ) 
 			{
