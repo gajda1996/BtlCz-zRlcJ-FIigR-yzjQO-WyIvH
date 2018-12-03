@@ -16,11 +16,11 @@ include 'menu.php';
 	if (isset($_SESSION["timeout"]))
 	{
 		session_destroy();
-		echo "Probìhlo odhlášení";
+		echo "ProbÄ›hlo odhlÃ¡Å¡enÃ­";
 	}
 	else
 	{
-		echo "Nejste pøihlášení";
+		echo "Nejste pÅ™ihlÃ¡Å¡enÃ½";
 	}
 ?>
 </article>

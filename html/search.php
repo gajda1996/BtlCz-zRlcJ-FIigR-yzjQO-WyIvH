@@ -13,8 +13,8 @@ include 'menu.php';
 
 <article>
 	<form action="search.php" method="POST">
-		<label for="name">Název</t></label>
-		<input type="text" name="nazev">
+		<label for="name">NÃ¡zev</t></label>
+		<input type="text" name="nazev" maxlength="25" required>
 		<br>
 		<input type="radio" name="volba" value="pivo" checked> Pivo<br>
 		<input type="radio" name="volba" value="pivovar"> Pivovar<br>

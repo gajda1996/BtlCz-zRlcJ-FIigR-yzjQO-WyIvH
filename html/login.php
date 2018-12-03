@@ -18,15 +18,15 @@ include 'menu.php';
 	{
 		if ($_SESSION["typ"]=="admin")
 		{
-			echo "VÌtejte administr·tore";
+			echo "V√≠tejte administr√°tore";
 		}
 		else if ($_SESSION["typ"]=="sladek")
 		{
-			echo "VÌtejte sl·dku " . $_SESSION["login"];
+			echo "V√≠tejte sl√°dku " . $_SESSION["login"];
 		}
 		else
 		{
-			echo "VÌtejte uûivateli " . $_SESSION["login"];
+			echo "V√≠tejte u≈æivateli " . $_SESSION["login"];
 		}
 		$_SESSION['timeout'] = time();
 	}
