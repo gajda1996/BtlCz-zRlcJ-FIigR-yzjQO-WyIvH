@@ -14,6 +14,14 @@ include 'menu.php';
 <article>
 <?php
   include "../initdb.php";
+  if (!isset($_SESSION["typ"])){
+    echo "K této stránce nemáte dostatečná uživatelská práva.";
+    exit();
+  }
+  if (($_SESSION["typ"] != "admin") && ($_SESSION["typ"] != "sladek")){
+    echo "K této stránce nemáte dostatečná uživatelská práva.";
+    exit();
+  }
   if(!isset($_POST["editace"])){
 
     echo '<select name="pridat_odebrat" form="upravy">';
@@ -26,10 +34,12 @@ include 'menu.php';
     echo "<option value=\"slad\">Slad</option>";
     echo "<option value=\"chmel\">Chmel</option>";
     echo "<option value=\"kvasnice\">Kvasnice</option>";
+    if($_SESSION["typ"] == "admin"){
     echo "<option value=\"pivovar\">Pivovar</option>";
     echo "<option value=\"hospoda\">Hospoda</option>";
     echo "<option value=\"uzivatel\">Uživatel</option>";
     echo "<option value=\"sladek\">Sládek</option>";
+    }
     echo "</select>";
 
 
@@ -44,8 +54,49 @@ include 'menu.php';
       $_SESSION["pridat_odebrat"] = 'pridat';
       if($_POST["editace"] === 'pivo'){
         $_SESSION['vyber'] = 'pivo';
+        $sql = "SELECT * FROM slad ORDER BY barva";
+        $result = mysql_query($sql, $conn);
+        echo "<label for='id_slad'>Slad </label>";
+        echo "<select name='id_slad' form='pridani'>";
+        while ($row = mysql_fetch_assoc($result)){
+          echo "<option value='" .$row['ID_slad'] . "'>" .
+              " barva:" . $row["barva"] .
+              " původ:" . $row["puvod"] .
+              " extrakt:" . $row["extrakt"] .
+              "</option>";
+        }
+        echo "</select><br>";
+
+        $sql = "SELECT * FROM chmel ORDER BY puvod";
+        $result = mysql_query($sql, $conn);
+        echo "<label for='id_chmel'>Chmel </label>";
+        echo "<select name='id_chmel' form='pridani'>";
+        while ($row = mysql_fetch_assoc($result)){
+          echo "<option value='" .$row['ID_chmel'] . "'>" .
+              " původ:" . $row["puvod"] .
+              " doba sklizně:" . $row["doba_sklizne"] .
+              " aroma:" . $row["aroma"] .
+              " hořkost:" . $row["horkost"] .
+              " podíl alfa kyselin:" . $row["podil_alfa_kyselin"] .
+              "</option>";
+        }
+        echo "</select><br>";
+
+        $sql = "SELECT * FROM kvasnice ORDER BY skupenstvi";
+        $result = mysql_query($sql, $conn);
+        echo "<label for='id_kvasnice'>Kvasnice</label>";
+        echo "<select name='id_kvasnice' form='pridani'>";
+        while ($row = mysql_fetch_assoc($result)){
+          echo "<option value='" .$row['ID_kvasnice'] . "'>" .
+              " skupenství:" . $row["skupenstvi"] .
+              " typ kvašení:" . $row["typ_kvaseni"] .
+              "</option>";
+        }
+        echo "</select><br>";
+
         echo'
-        <form action="sprava2.php" method="POST">
+
+        <form action="sprava2.php" id="pridani" method="POST">
           <label for="nazev">Nazev</label>
           <input type="text" name="nazev">
           <br>
