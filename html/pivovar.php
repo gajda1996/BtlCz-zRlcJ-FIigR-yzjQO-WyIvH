@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+﻿ <!DOCTYPE html>
 <html lang="en">
 <head>
 <?php
@@ -19,10 +19,12 @@ include 'menu.php';
 	if ($_SESSION['pivovar'][0]!="")
 	{
 		?>
-		<p>N�zev: <?php echo $_SESSION['pivovar'][1]?></p>
-		<p>M�sto: <?php echo $_SESSION['pivovar'][2]?></p>
+		<p>Název: <?php echo $_SESSION['pivovar'][1]?></p>
+		<p>Mìsto: <?php echo $_SESSION['pivovar'][2]?></p>
 		<p>Adresa: <?php echo $_SESSION['pivovar'][3]?> <?php echo $_SESSION['pivovar'][4]?></p>
-		<p>PS�: <?php echo $_SESSION['pivovar'][5]?></p>
+		<p>PSÈ: <?php echo $_SESSION['pivovar'][5]?></p>
+		<br>
+		<label for="name"><b>Pivovar vaří následující piva</b></t></label>
 		<?php
 		unset($_POST['getpivo']);
 	}
@@ -30,6 +32,18 @@ include 'menu.php';
 	{
 		echo "Pivovar nebyl nalezen";
 	}
+		$sql = "SELECT * FROM pivo ORDER BY nazev";
+        $result = mysql_query($sql, $conn);
+        while ($row = mysql_fetch_assoc($result))
+		{
+			if ($row['ID_pivovar']==$_SESSION['pivovar'][0])
+			{
+				?>
+				<a href="pivo.php?nazev=<?php echo $row['nazev']; ?>"><?php echo $row['nazev']; ?></a>
+				<br>
+				<?php
+			}
+        }
 ?>
 </article>
 
