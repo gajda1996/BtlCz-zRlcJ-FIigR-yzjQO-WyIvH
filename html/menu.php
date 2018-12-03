@@ -45,6 +45,19 @@
 	<li class="nav-item">
       <a class="nav-link" href="seznamhospod.php">Seznam hospod</a>
     </li>
+	<?php
+	if (isset($_SESSION["typ"]))
+	{
+	if ($_SESSION["typ"]=="admin" || $_SESSION["typ"]=="sladek")
+	{
+	?>
+	<li class="nav-item">
+      <a class="nav-link" href="sprava.php">Správa</a>
+    </li>
+	<?php
+	}
+	}
+	?>
     <li class="nav-item">
       <a class="nav-link" href="profil.php">Profil</a>
     </li>
