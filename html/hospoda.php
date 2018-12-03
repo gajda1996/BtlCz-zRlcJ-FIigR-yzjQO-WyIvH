@@ -81,7 +81,7 @@ include 'menu.php';
 						<br>
 						<form action="hospoda.php" method="POST">
 							<label for="name">Znamka 0-10</t></label>
-							<input type="text" name="znamka">
+							<input type="number" name="znamka" min="0" max="10" required>
 							<br>
 							<input type="submit" name="pridat" value="Přidat hodnocení">
 							</div>
