@@ -366,17 +366,35 @@
 
 	if(isset($_POST['getpivovar']))
 	{
-		$nazev = $_POST["nazev"];
-		$sql = "SELECT * FROM pivovar WHERE nazev = '$nazev'";        
-		$retval = mysql_query( $sql, $conn );
-        if(! $retval ) 
+		if (isset($_POST["nazev"]))
 		{
-			$_SESSION["error"]=1;
-        }
+			$nazev = $_POST["nazev"];
+			$sql = "SELECT * FROM pivovar WHERE nazev = '$nazev'";        
+			$retval = mysql_query( $sql, $conn );
+			if(! $retval ) 
+			{
+				$_SESSION["error"]=1;
+			}
+			else
+			{
+				$row = mysql_fetch_array($retval, MYSQL_NUM);
+				$_SESSION['pivovar'] = $row;
+			}
+		}
 		else
 		{
-			$row = mysql_fetch_array($retval, MYSQL_NUM);
-			$_SESSION['pivovar'] = $row;
+			$nazev = $_POST["ID_pivovar"];
+			$sql = "SELECT * FROM pivovar WHERE ID_pivovar = '$nazev'";        
+			$retval = mysql_query( $sql, $conn );
+			if(! $retval ) 
+			{
+				$_SESSION["error"]=1;
+			}
+			else
+			{
+				$row = mysql_fetch_array($retval, MYSQL_NUM);
+				$_SESSION['pivovar'] = $row;
+			}
 		}
     }
 
@@ -463,17 +481,35 @@
 
 	if(isset($_POST['getsladek']))
 	{
-		$login = $_POST["login"];
-		$sql = "SELECT * FROM sladek WHERE login = '$login'";
-		$retval = mysql_query( $sql, $conn );
-        if(! $retval ) 
+		if (isset($_POST["login"]))
 		{
-			$_SESSION["error"]=1;
-        }
+			$login = $_POST["login"];
+			$sql = "SELECT * FROM sladek WHERE login = '$login'";
+			$retval = mysql_query( $sql, $conn );
+			if(! $retval ) 
+			{
+				$_SESSION["error"]=1;
+			}
+			else
+			{
+				$row = mysql_fetch_array($retval, MYSQL_NUM);
+				$_SESSION['sladek'] = $row;
+			}
+		}
 		else
 		{
-			$row = mysql_fetch_array($retval, MYSQL_NUM);
-			$_SESSION['sladek'] = $row;
+			$idsladek = $_POST["ID_sladek"];
+			$sql = "SELECT * FROM sladek WHERE ID_sladek = '$idsladek'";
+			$retval = mysql_query( $sql, $conn );
+			if(! $retval ) 
+			{
+				$_SESSION["error"]=1;
+			}
+			else
+			{
+				$row = mysql_fetch_array($retval, MYSQL_NUM);
+				$_SESSION['sladek'] = $row;
+			}
 		}
     }
 
