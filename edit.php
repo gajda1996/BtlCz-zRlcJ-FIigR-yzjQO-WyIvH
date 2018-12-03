@@ -7,7 +7,10 @@
 		$styl_kvaseni = $_POST["styl_kvaseni"];
 		$typ_piva = $_POST["typ_piva"];
 		$obsah_alkoholu = $_POST["obsah_alkoholu"];
-		$sql = "INSERT INTO pivo(nazev, stupen_EBC, styl_kvaseni, typ_piva, obsah_alkoholu) VALUES('$nazev', '$stupen_EBC','$styl_kvaseni', '$typ_piva', '$obsah_alkoholu')";   
+	    	$id_slad = $_POST["id_slad"];
+	    	$id_chmel = $_POST["id_chmel"];
+		$id_kvasnice = $_POST["id_kvasnice"];
+	    $sql = "INSERT INTO pivo(nazev, stupen_EBC, styl_kvaseni, typ_piva, obsah_alkoholu, ID_slad,ID_chmel,ID_kvasnice) VALUES('$nazev', '$stupen_EBC','$styl_kvaseni', '$typ_piva', '$obsah_alkoholu', '$id_slad', '$id_chmel', '$id_kvasnice')";   
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
