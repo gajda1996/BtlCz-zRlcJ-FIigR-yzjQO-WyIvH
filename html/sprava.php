@@ -122,19 +122,19 @@ include 'menu.php';
 
         <form action="sprava2.php" id="pridani" method="POST">
           <label for="nazev">Nazev</label>
-          <input type="text" name="nazev" maxlength="25">
+          <input type="text" name="nazev" maxlength="25" required>
           <br>
           <label for="stupen_EBC">Stupeň EBC</label>
-          <input type="number" name="stupen_EBC">
+          <input type="number" name="stupen_EBC" min="0" max="200">
           <br>
           <label for="styl_kvaseni">Styl Kvašení</label>
-          <input type="text" name="styl_kvaseni">
+          <input type="text" name="styl_kvaseni" maxlength="25" required>
           <br>
           <label for="typ_piva">Typ piva</label>
-          <input type="text" name="typ_piva">
+          <input type="text" name="typ_piva" maxlength="25" required>
           <br>
           <label for="obsah_alkoholu">Obsah alkoholu</label>
-          <input type="number" name="obsah_alkoholu">
+          <input type="number" name="obsah_alkoholu" min="0" max="100">
           <br>
           <input type="submit" value="Přidat">
           </div>
@@ -146,13 +146,13 @@ include 'menu.php';
         echo'
         <form action="sprava2.php" method="POST">
           <label for="barva">Barva</label>
-          <input type="text" name="barva">
+          <input type="text" name="barva" maxlength="25" required>
           <br>
           <label for="puvod">Původ</label>
-          <input type="text" name="puvod">
+          <input type="text" name="puvod" maxlength="25" required>
           <br>
           <label for="extrakt">Extrakt</label>
-          <input type="text" name="extrakt">
+          <input type="text" name="extrakt" maxlength="25" required>
           <br>
           <input type="submit" value="Přidat">
           </div>
@@ -164,19 +164,19 @@ include 'menu.php';
         echo'
         <form action="sprava2.php" method="POST">
           <label for="puvod">Původ</label>
-          <input type="text" name="puvod">
+          <input type="text" name="puvod" maxlength="25" required>
           <br>
           <label for="doba_sklizne">Doba sklizně</label>
-          <input type="text" name="doba_sklizne">
+          <input type="text" name="doba_sklizne" maxlength="25" required>
           <br>
           <label for="aroma">Aroma</label>
-          <input type="text" name="aroma">
+          <input type="text" name="aroma" maxlength="25" required>
           <br>
           <label for="horkost">Hořkost</label>
-          <input type="number" name="horkost">
+          <input type="number" name="horkost" min="0" required>
           <br>
           <label for="podil_alfa_kyselin">Podíl alfa kyselin</label>
-          <input type="number" name="podil_alfa_kyselin">
+          <input type="number" name="podil_alfa_kyselin" min="0" required>
           <br>
           <input type="submit" value="Přidat">
           </div>
@@ -188,7 +188,7 @@ include 'menu.php';
         echo'
         <form action="sprava2.php" method="POST">
           <label for="skupenstvi">Skupenství</label>
-          <input type="text" name="skupenstvi">
+          <input type="text" name="skupenstvi" maxlength="25" required>
           <br>
           <label for="typ_kvaseni">Typ kvašení: </label>
           <input type="radio" name="typ_kvaseni" value="Svrchní">  Svrchní
@@ -204,19 +204,19 @@ include 'menu.php';
         echo'
         <form action="sprava2.php" method="POST">
           <label for="nazev">Název</label>
-          <input type="text" name="nazev">
+          <input type="text" name="nazev" maxlength="25" required>
           <br>
           <label for="adr_mesto">Město</label>
-          <input type="text" name="adr_mesto">
+          <input type="text" name="adr_mesto" maxlength="30" required>
           <br>
           <label for="adr_ulice">Ulice</label>
-          <input type="text" name="adr_ulice">
+          <input type="text" name="adr_ulice" maxlength="30" required>
           <br>
           <label for="adr_cislo_domu">Číslo domu</label>
-          <input type="number" name="adr_cislo_domu">
+          <input type="number" name="adr_cislo_domu" min="0" required>
           <br>
           <label for="PSC">PSČ</label>
-          <input type="number" name="PSC">
+          <input type="number" name="PSC" min="10000" max="99999" required>
           <br>
           <input type="submit" value="Přidat">
           </div>
@@ -228,19 +228,19 @@ include 'menu.php';
         echo'
         <form action="sprava2.php" method="POST">
           <label for="nazev">Název</label>
-          <input type="text" name="nazev">
+          <input type="text" name="nazev" maxlength="25" required>
           <br>
           <label for="adr_mesto">Město</label>
-          <input type="text" name="adr_mesto">
+          <input type="text" name="adr_mesto" maxlength="30" required>
           <br>
           <label for="adr_ulice">Ulice</label>
-          <input type="text" name="adr_ulice">
+          <input type="text" name="adr_ulice" maxlength="30" required>
           <br>
           <label for="adr_cislo_domu">Číslo domu</label>
-          <input type="number" name="adr_cislo_domu">
+          <input type="number" name="adr_cislo_domu" min="0" required>
           <br>
           <label for="PSC">PSČ</label>
-          <input type="number" name="PSC">
+          <input type="number" name="PSC" min="10000" max="99999" required>
           <br>
           <input type="submit" value="Přidat">
           </div>
@@ -252,10 +252,10 @@ include 'menu.php';
         echo'
         <form action="sprava2.php" method="POST">
           <label for="login">Login</label>
-          <input type="text" name="login">
+          <input type="text" name="login" maxlength="25" required>
           <br>
           <label for="heslo">Heslo</label>
-          <input type="text" name="heslo">
+          <input type="text" name="heslo" maxlength="25" required>
           <br>
           <input type="submit" value="Přidat">
           </div>
@@ -267,25 +267,25 @@ include 'menu.php';
         echo'
         <form action="sprava2.php" method="POST">
           <label for="login">Login</label>
-          <input type="text" name="login">
+          <input type="text" name="login" maxlength="25" required>
           <br>
           <label for="jmeno">Jméno</label>
-          <input type="text" name="jmeno">
+          <input type="text" name="jmeno" maxlength="25" required>
           <br>
           <label for="prijmeni">Příjmení</label>
-          <input type="text" name="prijmeni">
+          <input type="text" name="prijmeni" maxlength="25" required>
           <br>
           <label for="adr_mesto">Město</label>
-          <input type="text" name="adr_mesto">
+          <input type="text" name="adr_mesto" maxlength="30" required>
           <br>
           <label for="adr_ulice">Ulice</label>
-          <input type="text" name="adr_ulice">
+          <input type="text" name="adr_ulice" maxlength="30" required>
           <br>
           <label for="adr_cislo_domu">Číslo domu</label>
-          <input type="number" name="adr_cislo_domu">
+          <input type="number" name="adr_cislo_domu" min="0" required>
           <br>
           <label for="PSC">PSČ</label>
-          <input type="number" name="PSC">
+          <input type="number" name="PSC" min="10000" max="99999">
           <br>
           <input type="submit" value="Přidat">
           </div>
