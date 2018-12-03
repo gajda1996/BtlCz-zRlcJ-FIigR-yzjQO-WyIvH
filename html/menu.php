@@ -57,10 +57,6 @@
 	<li class="nav-item">
       <a class="nav-link" href="logout.php">Odhlásit</a>
     </li>
-    </li>
-	<li class="nav-item">
-      <a class="nav-link" href="sprava.php">Správa</a>
-    </li>
   </ul>
 
 </nav>
