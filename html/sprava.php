@@ -84,7 +84,7 @@ include 'menu.php';
 
         $sql = "SELECT * FROM kvasnice ORDER BY skupenstvi";
         $result = mysql_query($sql, $conn);
-        echo "<label for='id_kvasnice'>Kvasnice</label>";
+        echo "<label for='id_kvasnice'>Kvasnice </label>";
         echo "<select name='id_kvasnice' form='pridani'>";
         while ($row = mysql_fetch_assoc($result)){
           echo "<option value='" .$row['ID_kvasnice'] . "'>" .
@@ -94,11 +94,35 @@ include 'menu.php';
         }
         echo "</select><br>";
 
+        $sql = "SELECT * FROM sladek ORDER BY jmeno";
+        $result = mysql_query($sql, $conn);
+        echo "<label for='id_sladek'>Sládek </label>";
+        echo "<select name='id_sladek' form='pridani'>";
+        while ($row = mysql_fetch_assoc($result)){
+          echo "<option value='" .$row['ID_sladka'] . "'>" .
+              " Jméno: " . $row["jmeno"] .
+              " Příjmení: " . $row["prijmeni"] .
+              "</option>";
+        }
+        echo "</select><br>";
+
+        $sql = "SELECT * FROM pivovar ORDER BY nazev";
+        $result = mysql_query($sql, $conn);
+        echo "<label for='id_pivovar'>Pivovar </label>";
+        echo "<select name='id_pivovar' form='pridani'>";
+        while ($row = mysql_fetch_assoc($result)){
+          echo "<option value='" .$row['ID_pivovar'] . "'>" .
+              " Název: " . $row["nazev"] .
+              " Město: " . $row["adr_mesto"] .
+              "</option>";
+        }
+        echo "</select><br>";
+
         echo'
 
         <form action="sprava2.php" id="pridani" method="POST">
           <label for="nazev">Nazev</label>
-          <input type="text" name="nazev">
+          <input type="text" name="nazev" maxlength="25">
           <br>
           <label for="stupen_EBC">Stupeň EBC</label>
           <input type="number" name="stupen_EBC">
