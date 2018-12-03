@@ -276,7 +276,7 @@
 		$znamka = $_POST["znamka"];
 		$datum = $_POST["datum"];
 		$cas = $_POST["cas"];
-		$sql = "INSERT INTO hodnoceni (ID_hospoda, login, znamka, datum, cas) VALUES('$ID_hospoda', '$login', '$znamka', '$datum', '$cas')";   
+		$sql = "INSERT INTO hodnocenihospoda (ID_hospoda, login, znamka, datum, cas) VALUES('$ID_hospoda', '$login', '$znamka', '$datum', '$cas')";   
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
@@ -288,7 +288,7 @@
 	{
 		$ID_hospoda = $_POST["ID_hospoda"];
 		$login = $_POST["login"];
-		$sql = "SELECT * FROM hodnoceni WHERE ID_hospoda = '$ID_hospoda' AND login = '$login'";        
+		$sql = "SELECT * FROM hodnocenihospoda WHERE ID_hospoda = '$ID_hospoda' AND login = '$login'";        
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
@@ -305,7 +305,7 @@
 	{
 		$ID_hospoda = $_POST["ID_hospoda"];
 		$login = $_POST["login"];
-		$sql = "DELETE FROM hodnoceni WHERE ID_hospoda = '$ID_hospoda' AND login = '$login'";        
+		$sql = "DELETE FROM hodnocenihospoda WHERE ID_hospoda = '$ID_hospoda' AND login = '$login'";        
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
