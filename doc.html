@@ -40,7 +40,37 @@
 </table>
 
 <h2>Implementace</h2>
-<p>Struèná dokumentace k implementaci, která popisuje, které PHP skripty implementují jednotlivé pøípady pou¾ití uvedené v use-case diagramu z IDS. V pøípadì, ¾e bylo nutno pøi implementaci uèinit zmìny v návrhu, musí být v dokumentaci zdùvodnìny.</p>
+<p>
+    <ul>
+        <li>edit.php - vkládání, ètení a mazání z databáze</li>
+        <li>functions.php - výpoèet prùmìrného hodnocení u piva a hospody</li>
+        <li>index.php - pøemìruje na uvodní obrazovku IS</li>
+        <li>initdb.php - otevírá pøipojení k databázi</li>
+        <li>login.php - pøihlá¹ení</li>
+        <li>reset.php - vyèi¹tìní a inicializace databáze</li>
+        <li>doc.html - dokumentace</li>
+        <li>db.sql - databazovy skript</li>
+        <li>/css/style.css - css</li>
+        <li>/html/domu.php - uvodní obrazovka</li>
+        <li>/html/head.php - HTML hlavièka</li>
+        <li>/html/hospoda.php - výpis údajù o hospodì a její hodnocení</li>
+        <li>/html/login.php - pøihlá¹ení</li>
+        <li>/html/logout.php - odhlá¹ení</li>
+        <li>/html/menu.php - li¹ta z nabídkou</li>
+        <li>/html/pivo.php - údaje o pivu a jeho hodnocení </li>
+        <li>/html/pivovar.php - údaje o pivovaru spolu s pivy, kteeré vaøí</li>
+        <li>/html/profil.php - profil u¾ivatele se zmìnou hesla a po¾ností stát se sládkem</li>
+        <li>/html/reg2.php - pokraèování registrace</li>
+        <li>/html/registrace.php - registrace úètu</li>
+        <li>/html/search.php - vyhledávání piv/pivovarù/hospod</li>
+        <li>/html/seznamhospod.php - výpis v¹ech hospod</li>
+        <li>/html/seznampiv.php - výpis v¹ech piv</li>
+        <li>/html/seznampivovaru.php - výpis v¹ech pivovarù</li>
+        <li>/html/sprava.php - re¾im správce IS</li>
+        <li>/html/sprava2.php - manipulace s databazi v rámci správy IS</li>
+        <li>/html/upgradeuctu.php - umo¾ní u¾ivateli se stát sládkem</li>
+    </ul>
+</p>
 
 <h2>Instalace</h2>
 <ul>
@@ -50,7 +80,10 @@
 </ul>
 
 <h2>Známé problémy</h2>
-<p>Zde popi¹te, které body zadání (IDS a IIS) nejsou implementovány a z jakého dùvodu. Napø. &bdquo;Z èasových dùvodù nebyla implementována správa u¾ivatelù.&rdquo; Pomù¾ete tím zrychlit opravování, kdy¾ neimplementované funkce nebudeme muset dlouze hledat.</p>
+<p>V informaèním systému nejsou implemetovány tabulky Distribuce piva, Kamenná prodejna, Rámcová smlouva, proto¾e jsme informaèní systém pojali,
+    jako komunitní web pro fanou¹ky piva a zahrnout administraci distribuce piva do takového systému nám nepøi¹lo vhodné. Dále pak chybí tabulka Záznam vypitého piva,
+    kterou jsme ji¾ bohu¾el z èasových dùvodù nesthli implementovat. Také se nám nepodaøilo implementovat èasovì omezené vaøení piva sládkem a není implementována vazba mezi sládkem a pivovarem.
+    Nejsou implementované tabulky Konzument a Amaterský sládek, proto¾e jsme si mysleli, ¾e v rámci IS nemají smysl.</p>
 
 </body>
 </html>
