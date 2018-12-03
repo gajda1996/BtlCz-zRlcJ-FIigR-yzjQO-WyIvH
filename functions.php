@@ -20,12 +20,12 @@
 			{
 				foreach($row as $data)
 				{
-					if ($i==6)
+					if ($i==4)
 					{
 						$celkem=$celkem+$data;
 						$pocet=$pocet+1;
 					}
-					if ($i==12)
+					if ($i==8)
 					{
 						$i=0;
 					}

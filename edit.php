@@ -229,11 +229,10 @@
 	{
 		$ID_pivo = $_POST["ID_pivo"];
 		$login = $_POST["login"];
-		$ID_hospoda = $_POST["ID_hospoda"];
 		$znamka = $_POST["znamka"];
 		$datum = $_POST["datum"];
 		$cas = $_POST["cas"];
-		$sql = "INSERT INTO hodnoceni (ID_pivo, login, ID_hospoda, znamka, datum, cas) VALUES('$ID_pivo', '$login', '$ID_hospoda', '$znamka', '$datum', '$cas')";   
+		$sql = "INSERT INTO hodnoceni (ID_pivo, login, znamka, datum, cas) VALUES('$ID_pivo', '$login', '$znamka', '$datum', '$cas')";   
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
@@ -262,8 +261,51 @@
 	{
 		$ID_pivo = $_POST["ID_pivo"];
 		$login = $_POST["login"];
+		$sql = "DELETE FROM hodnoceni WHERE ID_pivo = '$ID_pivo' AND login = '$login'";        
+		$retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			$_SESSION["error"]=1;
+        }
+    }
+
+	if(isset($_POST['addhodnocenihospoda']))
+	{
 		$ID_hospoda = $_POST["ID_hospoda"];
-		$sql = "DELETE FROM hodnoceni WHERE ID_pivo = '$ID_pivo' AND login = '$login' AND ID_hospoda = '$ID_hospoda'";        
+		$login = $_POST["login"];
+		$znamka = $_POST["znamka"];
+		$datum = $_POST["datum"];
+		$cas = $_POST["cas"];
+		$sql = "INSERT INTO hodnoceni (ID_hospoda, login, znamka, datum, cas) VALUES('$ID_hospoda', '$login', '$znamka', '$datum', '$cas')";   
+        $retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			$_SESSION["error"]=1;
+        }
+    }
+
+	if(isset($_POST['gethodnocenihospoda']))
+	{
+		$ID_hospoda = $_POST["ID_hospoda"];
+		$login = $_POST["login"];
+		$sql = "SELECT * FROM hodnoceni WHERE ID_hospoda = '$ID_hospoda' AND login = '$login'";        
+		$retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			$_SESSION["error"]=1;
+        }
+		else
+		{
+			$row = mysql_fetch_array($retval, MYSQL_NUM);
+			$_SESSION['hodnocenihospoda'] = $row;
+		}
+    }
+
+	if(isset($_POST['deletehodnocenihospoda']))
+	{
+		$ID_hospoda = $_POST["ID_hospoda"];
+		$login = $_POST["login"];
+		$sql = "DELETE FROM hodnoceni WHERE ID_hospoda = '$ID_hospoda' AND login = '$login'";        
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
