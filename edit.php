@@ -7,10 +7,7 @@
 		$styl_kvaseni = $_POST["styl_kvaseni"];
 		$typ_piva = $_POST["typ_piva"];
 		$obsah_alkoholu = $_POST["obsah_alkoholu"];
-	    	$id_slad = $_POST["id_slad"];
-	    	$id_chmel = $_POST["id_chmel"];
-		$id_kvasnice = $_POST["id_kvasnice"];
-	    $sql = "INSERT INTO pivo(nazev, stupen_EBC, styl_kvaseni, typ_piva, obsah_alkoholu, ID_slad,ID_chmel,ID_kvasnice) VALUES('$nazev', '$stupen_EBC','$styl_kvaseni', '$typ_piva', '$obsah_alkoholu', '$id_slad', '$id_chmel', '$id_kvasnice')";   
+		$sql = "INSERT INTO pivo(nazev, stupen_EBC, styl_kvaseni, typ_piva, obsah_alkoholu) VALUES('$nazev', '$stupen_EBC','$styl_kvaseni', '$typ_piva', '$obsah_alkoholu')";   
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
@@ -395,6 +392,18 @@
 		$login = $_POST["login"];
 		$heslo = $_POST["heslo"];
 		$sql = "INSERT INTO uzivatel(login, heslo) VALUES ('$login', '$heslo')";
+        $retval = mysql_query( $sql, $conn );
+        if(! $retval ) 
+		{
+			$_SESSION["error"]=1;
+        }
+    }
+
+	if(isset($_POST['updateuzivatel']))
+	{
+		$login = $_POST["login"];
+		$heslo = $_POST["heslo"];
+		$sql = "UPDATE uzivatel SET heslo='$heslo' WHERE login='$login'";
         $retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
