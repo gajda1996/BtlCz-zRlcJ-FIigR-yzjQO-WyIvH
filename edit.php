@@ -10,7 +10,10 @@
 		$id_slad = $_POST["id_slad"];
 	    $id_chmel = $_POST["id_chmel"];
 		$id_kvasnice = $_POST["id_kvasnice"];
-		$sql = "INSERT INTO pivo(nazev, stupen_EBC, styl_kvaseni, typ_piva, obsah_alkoholu, ID_slad,ID_chmel,ID_kvasnice) VALUES('$nazev', '$stupen_EBC','$styl_kvaseni', '$typ_piva', '$obsah_alkoholu', '$id_slad', '$id_chmel', '$id_kvasnice')";        $retval = mysql_query( $sql, $conn );
+		$id_sladek = $_POST["id_sladek"];
+		$id_pivovar = $_POST["id_pivovar"];
+		$sql = "INSERT INTO pivo(nazev, stupen_EBC, styl_kvaseni, typ_piva, obsah_alkoholu, ID_slad,ID_chmel,ID_kvasnice,ID_sladek, ID_pivovar) VALUES('$nazev', '$stupen_EBC','$styl_kvaseni', '$typ_piva', '$obsah_alkoholu', '$id_slad', '$id_chmel', '$id_kvasnice', '$id_sladek' , '$id_pivovar')";  
+		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
 			$_SESSION["error"]=1;
@@ -175,49 +178,6 @@
 	{
 		$ID_kvasnice = $_POST["ID_kvasnice"];
 		$sql = "DELETE FROM kvasnice WHERE ID_kvasnice = '$ID_kvasnice'";        
-		$retval = mysql_query( $sql, $conn );
-        if(! $retval ) 
-		{
-			$_SESSION["error"]=1;
-        }
-    }
-
-	if(isset($_POST['addzaznam_vypiteho_piva']))
-	{
-		$ID_pivo = $_POST["ID_pivo"];
-		$login = $_POST["login"];
-		$datum = $_POST["datum"];
-		$cas = $_POST["cas"];
-		$sql = "INSERT INTO zaznam_vypiteho_piva (ID_pivo, login, datum, cas) VALUES('$ID_pivo', '$login' , '$datum', '$cas')";   
-        $retval = mysql_query( $sql, $conn );
-        if(! $retval ) 
-		{
-			$_SESSION["error"]=1;
-        }
-    }
-
-	if(isset($_POST['getzaznam_vypiteho_piva']))
-	{
-		$ID_pivo = $_POST["ID_pivo"];
-		$login = $_POST["login"];
-		$sql = "SELECT * FROM zaznam_vypiteho_piva WHERE ID_pivo = '$ID_pivo' AND login = '$login'";        
-		$retval = mysql_query( $sql, $conn );
-        if(! $retval ) 
-		{
-			$_SESSION["error"]=1;
-        }
-		else
-		{
-			$row = mysql_fetch_array($retval, MYSQL_NUM);
-			$_SESSION['zaznam_vypiteho_piva'] = $row;
-		}
-    }
-
-	if(isset($_POST['deletezaznam_vypiteho_piva']))
-	{
-		$ID_pivo = $_POST["ID_pivo"];
-		$login = $_POST["login"];
-		$sql = "DELETE FROM zaznam_vypiteho_piva WHERE ID_pivo = '$ID_pivo' AND login = '$login'";        
 		$retval = mysql_query( $sql, $conn );
         if(! $retval ) 
 		{
