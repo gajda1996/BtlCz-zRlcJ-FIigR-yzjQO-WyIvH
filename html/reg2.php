@@ -13,12 +13,11 @@ include 'menu.php';
 
 <article>
  <?php
-	$_SESSION["error"] = 0;
 	if ($_POST["heslo"] === $_POST["heslo2"])
 	{
 		$_POST["adduzivatel"] = 1;
 		include '../edit.php';
-		if (($_SESSION["error"]) != 0)
+		if (isset($_SESSION["error"]))
 		{
 			echo "Uživatel s tímto loginem již existuje. Registrace byla neúspěšná.";
 		}

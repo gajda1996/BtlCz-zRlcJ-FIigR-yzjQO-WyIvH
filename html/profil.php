@@ -12,11 +12,11 @@ include 'menu.php';
 ?>
 
 <article>
+<br>
 <form action="upgradeuctu.php" method="POST">
 		<input type="submit" value="Staňte se sládkem">
 		</div>
 </form> 
-<br>
 <br>
 <?php
 	if (isset($_SESSION['login']) && isset($_SESSION['heslo']))
