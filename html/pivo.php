@@ -18,7 +18,6 @@ include 'menu.php';
 		$_POST['deletehodnoceni']=1;
 		$_POST["ID_pivo"]=$_SESSION['hodnoceni'][0];
 		$_POST["login"]=$_SESSION['login'];
-		$_POST["ID_hospoda"]=$_SESSION['hodnoceni'][2];
 		include '../edit.php';
 		$url= "Location: pivo.php?nazev=" . $_SESSION['pivo'][1];
 		header($url);
@@ -30,11 +29,11 @@ include 'menu.php';
 			$_POST['addhodnoceni']=1;
 			$_POST["ID_pivo"]=$_SESSION['pivo'][0];
 			$_POST["login"]=$_SESSION['login'];
-			$_POST["ID_hospoda"]=1;
 			$_POST["datum"]=0;
 			$_POST["cas"]=0;
 			include '../edit.php';
 			$url= "Location: pivo.php?nazev=" . $_SESSION['pivo'][1];
+			unset($_POST['pridat']);
 			header($url);
 		}
 		else
@@ -51,6 +50,8 @@ include 'menu.php';
 		if ($_SESSION['pivo'][0]!="")
 		{
 			?>
+			<br>
+			<label for="name"><b>Pivo</b></t></label>
 			<p>Název: <?php echo $_SESSION['pivo'][1]?></p>
 			<p>Stupeň EBC: <?php echo $_SESSION['pivo'][2]?></p>
 			<p>Styl kvašení: <?php echo $_SESSION['pivo'][3]?></p>
@@ -111,7 +112,7 @@ include 'menu.php';
 				if ($_SESSION['hodnoceni'][0]!="")
 				{
 					?>
-					<p>Vaše hodnocení: <?php echo $_SESSION['hodnoceni'][3]?></p>
+					<p>Vaše hodnocení: <?php echo $_SESSION['hodnoceni'][2]?></p>
 					<form action="pivo.php" method="POST">
 						<input type="submit" name="smazat" value="Smazat hodnocení">
 						</div>
